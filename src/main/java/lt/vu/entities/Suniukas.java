@@ -5,8 +5,10 @@
  */
 package lt.vu.entities;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.io.Serializable;
 import java.util.List;
@@ -32,6 +34,8 @@ import javax.persistence.Table;
     , @NamedQuery(name = "Suniukas.findByGyvunoID", query = "SELECT s FROM Suniukas s WHERE s.gyvunoID = :gyvunoID")
     , @NamedQuery(name = "Suniukas.findByVardas", query = "SELECT s FROM Suniukas s WHERE s.vardas = :vardas")
     , @NamedQuery(name = "Suniukas.findByVeisle", query = "SELECT s FROM Suniukas s WHERE s.veisle = :veisle")})
+@EqualsAndHashCode(of = "gyvunoID")
+@ToString(of = "gyvunoID")
 public class Suniukas implements Serializable {
 
     //TODO Lombok
@@ -101,30 +105,30 @@ public class Suniukas implements Serializable {
 //    public void setViesbutis(Viesbutis viesbutis) {
 //        this.viesbutis = viesbutis;
 //    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (gyvunoID != null ? gyvunoID.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Suniukas)) {
-            return false;
-        }
-        Suniukas other = (Suniukas) object;
-        if ((this.gyvunoID == null && other.gyvunoID != null) || (this.gyvunoID != null && !this.gyvunoID.equals(other.gyvunoID))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "lt.vu.entities.Suniukas[ gyvunoID=" + gyvunoID + " ]";
-    }
+//
+//    @Override
+//    public int hashCode() {
+//        int hash = 0;
+//        hash += (gyvunoID != null ? gyvunoID.hashCode() : 0);
+//        return hash;
+//    }
+//
+//    @Override
+//    public boolean equals(Object object) {
+//        // TODO: Warning - this method won't work in the case the id fields are not set
+//        if (!(object instanceof Suniukas)) {
+//            return false;
+//        }
+//        Suniukas other = (Suniukas) object;
+//        if ((this.gyvunoID == null && other.gyvunoID != null) || (this.gyvunoID != null && !this.gyvunoID.equals(other.gyvunoID))) {
+//            return false;
+//        }
+//        return true;
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return "lt.vu.entities.Suniukas[ gyvunoID=" + gyvunoID + " ]";
+//    }
     
 }

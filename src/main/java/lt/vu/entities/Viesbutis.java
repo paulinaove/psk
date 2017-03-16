@@ -5,8 +5,10 @@
  */
 package lt.vu.entities;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.io.Serializable;
 import java.util.List;
@@ -32,6 +34,8 @@ import javax.persistence.Table;
     , @NamedQuery(name = "Viesbutis.findByPavadinimas", query = "SELECT v FROM Viesbutis v WHERE v.pavadinimas = :pavadinimas")
     , @NamedQuery(name = "Viesbutis.findByAdresas", query = "SELECT v FROM Viesbutis v WHERE v.adresas = :adresas")})
 @Getter @Setter
+@EqualsAndHashCode(of = "kodas")
+@ToString(of = "kodas")
 public class Viesbutis implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -102,30 +106,30 @@ public class Viesbutis implements Serializable {
 //    public void setSuniukasList(List<Suniukas> suniukasList) {
 //        this.suniukasList = suniukasList;
 //    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (kodas != null ? kodas.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Viesbutis)) {
-            return false;
-        }
-        Viesbutis other = (Viesbutis) object;
-        if ((this.kodas == null && other.kodas != null) || (this.kodas != null && !this.kodas.equals(other.kodas))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "lt.vu.entities.Viesbutis[ kodas=" + kodas + " ]";
-    }
+//
+//    @Override
+//    public int hashCode() {
+//        int hash = 0;
+//        hash += (kodas != null ? kodas.hashCode() : 0);
+//        return hash;
+//    }
+//
+//    @Override
+//    public boolean equals(Object object) {
+//        // TODO: Warning - this method won't work in the case the id fields are not set
+//        if (!(object instanceof Viesbutis)) {
+//            return false;
+//        }
+//        Viesbutis other = (Viesbutis) object;
+//        if ((this.kodas == null && other.kodas != null) || (this.kodas != null && !this.kodas.equals(other.kodas))) {
+//            return false;
+//        }
+//        return true;
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return "lt.vu.entities.Viesbutis[ kodas=" + kodas + " ]";
+//    }
     
 }
