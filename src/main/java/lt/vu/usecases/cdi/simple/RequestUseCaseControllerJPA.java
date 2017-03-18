@@ -3,9 +3,13 @@ package lt.vu.usecases.cdi.simple;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import lt.vu.entities.Course;
+import lt.vu.entities.Darbuotojas;
 import lt.vu.entities.Student;
+import lt.vu.entities.Suniukas;
 import lt.vu.usecases.cdi.dao.CourseDAO;
+import lt.vu.usecases.cdi.dao.DarbuotojasDAO;
 import lt.vu.usecases.cdi.dao.StudentDAO;
+import lt.vu.usecases.cdi.dao.SuniukasDAO;
 
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
@@ -17,25 +21,24 @@ import java.util.List;
 public class RequestUseCaseControllerJPA {
 
     @Getter
-    private Course course = new Course();
+    private Suniukas suo = new Suniukas();
     @Getter
-    private Student student = new Student();
+    private Darbuotojas darb = new Darbuotojas();
 
     @Inject
-    private CourseDAO courseDAO;
+    private SuniukasDAO suoDAO;
     @Inject
-    private StudentDAO studentDAO;
+    private DarbuotojasDAO darbDAO;
 
     @Transactional
-    public void createCourseStudent() {
-        student.getCourseList().add(course);
-        course.getStudentList().add(student);
-        courseDAO.create(course);
-        studentDAO.create(student);
+    public void sukurkSuniukaDarbuotoja() {
+        suo.getDarbuotojasList().add(darb);
+        darb.getSuniukasList().add(suo);
+        suoDAO.create(suo);
+        darbDAO.create(darb);
         log.info("Maybe OK...");
     }
 
-    public List<Student> getAllStudents() {
-        return studentDAO.getAllStudents();
+    public List<Suniukas> getAllSuniukas() { return suoDAO.getAllSuniukas();
     }
 }
