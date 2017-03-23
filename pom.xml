@@ -24,7 +24,7 @@
                 <artifactId>mybatis-generator-maven-plugin</artifactId>
                 <version>1.3.5</version>
                 <configuration>
-                    <contexts>StudentsDB</contexts>
+                    <contexts>SuniukuViesbutis</contexts>
                     <verbose>true</verbose>
                 </configuration>
                 <dependencies>
@@ -37,6 +37,11 @@
                         <groupId>org.postgresql</groupId>
                         <artifactId>postgresql</artifactId>
                         <version>9.4.1212</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>5.1.41</version>
                     </dependency>
                 </dependencies>
             </plugin>
